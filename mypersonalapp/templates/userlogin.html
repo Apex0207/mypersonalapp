@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>User Page</title>
+  <link rel="stylesheet" href="{{ url_for('static',filename='/css/bootstrap.min.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static',filename='/css/main.css')}}">
+</head>
+<body>
+  <div class="container">
+    <div class="row" style="text-align: center;">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="text-center text-dark mt-5">User Login</h2>
+
+        <div class="card my-5">
+          {% set m=get_flashed_messages() %}
+          {% for i in m %}
+          <p>{{ i }}</p>
+          {% endfor %}
+
+          <img src="{{ url_for('static',filename='/images/car3.jpeg')}}" class="img-fluid profile-image-pic img-thumbnail rounded-circle my-3"
+                width="200px" alt="profile">
+        <h2 class="section-heading text-uppercase">LOGIN HERE</h2>
+
+<form action="{{ url_for('submit_login')}}" method="POST">
+{% set m=get_flashed_messages()%}
+<p class="alert alert-danger">{{ m }}</p>
+<div class="row mb-2">
+<div class="col">
+{{ login.username(class_='form-control form-control-lg',placeholder='email address')}}
+<span>{{ login.username.errors }}</span>
+</div>
+<div class="col">
+{{ login.pwd(class_='form-control form-control-lg',placeholder='enter your password')}}
+<span>{{ login.pwd.errors }}</span>
+</div>
+<div class="col d-grid">
+{{ login.loginbtn(class_='btn btn-outline-warning')}}
+{{ login.csrf_token }}
+</div>
+</div>
+</form>
+
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

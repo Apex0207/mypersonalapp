@@ -1,0 +1,120 @@
+                 <DOCTYPE html>
+                <html lang="en">
+                 <head>
+                 <title>Apex car spot</title>
+                <meta charset="utf-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+                  <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}" type="text/css"/>
+                  <link rel="stylesheet" href="{{url_for('static', filename='fa/css/all.min.css')}}"/>
+                  <link rel ="stylesheet" href ="{{url_for('static', filename='animate.min.css')}}" type="text/css">
+                 <style type="text/css">
+
+            #background{
+            background-image:url("static/images/ferarri.jpg");
+            background-repeat:repeat;
+            background-size:contain;
+            width:0px;
+            min-height: 400px;
+            color:white;
+            }
+         li a{
+             text-decoration: none;
+             color: deeppink;
+         }
+         li{
+             display:inline-block;}
+                </style>
+
+{% extends 'base.html' %}
+{% block content %}
+
+            <div class="row" style="text-align: center;">
+                <div class="col" id="background"><h1 style="color:black">About Us</h1>
+                    <ul>
+                        <li><a href="apexcarspot.html"><b>Home</b></a></li>
+                        <li><a href=""><b><=></b></a></li>
+                        <li><a href="about.html"><b>About Us</b></a></li>
+                    </ul></div>
+                    <h3>Largest car's rental MarketPlace</h3>
+            </div>
+            <div class="row" style="text-align: center;">
+                <div class="col-lg-2 col-md-4"><h5 id="goalb">Goal</h5>
+                    <p style="display:none;" id="goal">To create a platform where car owners turn their cars into an asset. To help contribute to the development of the Nation's economy. To create a system that inspires youths to reach for the stars.</p>
+                </div>
+                <div class="col-lg-2 col-md-4"><h5 id="missionb">Mission</h5>
+                    <p style="display:none;" id="mission">To give renters the opportunity to drive themselves.</p>
+                </div>
+                <div class="col-lg-2 col-md-4"><h5 id="visionb">Vision</h5>
+                    <p style="display:none;" id="vision">To create a system where renters can affordably drive their choice of vehicles. A system where car owners can earn passive income without necessarily having to drive.</p>
+                </div>
+                <div class="col-lg-6 col-md-12"><img src="{{url_for('static',filename='images/gwagon.jpg')}}" alt="picture" class="img-fluid" style="width:200px"></div>
+            </div>
+            <div class="row" style="text-align: center;">
+                <div class="col-lg-3 col-md-6"><h4>Car Business</h4></div>
+                <div class="col-lg-3 col-md-6"><h4>24/7 help center</h4></div>
+                <div class="col-lg-3 col-md-6"><h4>Car Rental</h4></div>
+                <div class="col-lg-3 col-md-6"><h4>Gift packs</h4></div>
+            </div>
+            <div  class="row" style="text-align: center;">
+                <div class="col-lg-3 col-md-12"><img src="{{url_for('static', filename='images/car4.jpeg')}}" alt="picture" class="img-fluid"></div>
+                <div class="col-lg-6 col-md-12"><div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <h3 style="color:deeppink">Client's Feedback</h3>
+          <p>Apex car Spot is the best place to rent a car from, affordable and realiable</p>
+          <hr>
+          <h3>Jude Okoye</h3>
+          <p>musician</p>
+        </div>
+        <div class="carousel-item">
+          <h3 style="color:deeppink">Client's Feedback</h3>
+          <p>Affordable and realiable God bless you guys for the good work</p>
+          <hr>
+          <h3>Pete Edochie</h3>
+          <p>Actor</p>
+        </div>
+        <div class="carousel-item">
+          <h3 style="color:deeppink">Client's Feedback</h3>
+          <p>You people are too real customers first, I like that. You guy should keep it up</p>
+          <hr>
+          <h3>Owoicho Hannah</h3>
+          <p>Software Developer</p>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
+    </div>
+                <div class="col-lg-3 col-md-12"><img src="{{url_for('static',filename='images/car5.jpeg')}}" alt="picture" class="img-fluid"></div>
+            </div>
+
+
+
+
+         <script type="text/javascript" src="{{url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+         <script src="{{url_for('static', filename='jquery.js')}}"  language="javascript"></script>
+                   <script type="text/javascript">
+
+                       $(document).ready(function(){
+                        $('#goalb').click(function(){
+                        $('#goal').slideToggle(1200);
+                       })
+
+                     $('#missionb').click(function(){
+                        $('#mission').slideToggle(1200);
+                       })
+
+                       $('#visionb').click(function(){
+                        $('#vision').slideToggle(1200);
+                       })
+                 })
+             </script>
+      {% endblock content%}
+    </body>
+    </html>

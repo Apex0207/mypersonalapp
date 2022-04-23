@@ -1,0 +1,127 @@
+<DOCTYPE html>
+    <html lang="en">
+     <head>
+     <title>Service</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}" type="text/css"/>
+      <link rel="stylesheet" href="{{url_for('static', filename='fa/css/all.min.css')}}"/>
+      <link rel ="stylesheet" href ="{{url_for('static', filename='animate.min.css')}}" type="text/css">
+     <style type="text/css">
+
+#background{
+background-image:url("static/images/car5.jpeg");
+background-repeat:repeat;
+background-size:contain;
+width:0px;
+min-height: 400px;
+color:white;
+}
+li a{
+ text-decoration: none;
+ color: deeppink;
+}
+li{
+ display:inline-block;}
+    </style>
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+            <div class="row" style="text-align: center;">
+                <div class="col" id="background"><h1 style="color:black">Services</h1>
+                    <ul>
+                        <li><a href="apexcarspot.html"><b>Home</b></a></li>
+                        <li><a href=""><b><=></b></a></li>
+                        <li><a href="service.html"><b>Our Services</b></a></li>
+                    </ul></div>
+                    <h3>Largest car's rental MarketPlace</h3>
+            </div>
+            <div class="row" style="text-align: center;">
+                <div class="col-lg-3 col-md-6"><h5 id="suvb" style="background-color:deeppink;">Suv</h5>
+                    <p id="suv">These are special utility vehicles for extra comfort and higher suspension systems when driving through rough terrains.
+                        <img src="{{url_for('static', filename='images/car13.jpeg')}}" alt="picture" class="img-fluid">
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6"><h5 id="comfortb" style="background-color:deeppink;">Comfort</h5>
+                    <p style="display:none;" id="comfort">The next design after the first generation are the ones we refer to as second generation otherwise called Comfort class
+                        <img src="{{url_for('static', filename='images/car10.jpeg')}}" alt="picture" class="img-fluid">
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6"><h5 id="businessb" style="background-color:deeppink;">Business</h5>
+                    <p style="display:none;" id="business">The design next to the second generation is known as third generation otherwise called Business class
+                        <img src="{{url_for('static', filename='images/car11.jpeg')}}" alt="picture" class="img-fluid">
+                    </p>
+                </div>
+                <div class="col-lg-3 col-md-6"><h5 id="economyb" style="background-color:deeppink;">Economy</h5>
+                    <p style="display:none;" id="economy">Using the 2003 model of vehicles as minimum, we refer to those as first generation otherwise called Economy Class.
+                        <img src="{{url_for('static', filename='images/car12.jpeg')}}" alt="picture" class="img-fluid">
+                    </p></div>
+            </div>
+                    <div class="row"  style="text-align: center;">
+                        <div class="col"><b><h1>Rent A Car Quickly And Easily</h1></b></div>
+                        <h5>We have a wide variety of clean vehicles for you to choose from.</h5>
+                        <button type="submit" style="color: deeppink;"><b>Your fav.car here</b></button>
+
+                    </div>
+
+            <div  class="row">
+                <div class="col-lg-6 col-md-12"><h4><span style="color:deeppink;">Areas</span> You Can Find Us</h4><p>These are the areas you can find Apex Car Spot</p>
+             <ul>
+                 <li>Lagos</li><br>
+                 <li>Abuja</li><br>
+                 <li>Benue</li>
+             </ul>
+         </div>
+         <div class="col-lg-6 col-md-12"><img src="{{url_for('static', filename='images/locationmap.jpeg')}}" alt="logo" class="img-fluid"style="padding-left: 200px;"></div>
+            </div>
+
+
+
+           <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}">
+
+
+
+        </script>
+        <script src="{{url_for('static', filename='jquery.js')}}" language="javascript"></script>
+                  <script type="text/javascript">
+
+
+                       $(document).ready(function(){
+                        $('#suvb').click(function(){
+                        $('#suv').show(1200);
+                        $('#business').hide(1200);
+                        $('#economy').hide(1200);
+                        $('#comfort').hide(1200);
+
+                       })
+
+                     $('#businessb').click(function(){
+                        $('#suv').hide(1200);
+                        $('#business').show(1200);
+                        $('#economy').hide(1200);
+                        $('#comfort').hide(1200);
+                       })
+
+                       $('#economyb').click(function(){
+                        $('#suv').hide(1200);
+                        $('#business').hide(1200);
+                        $('#economy').show(1200);
+                        $('#comfort').hide(1200);
+                       })
+
+                       $('#comfortb').click(function(){
+                        $('#suv').hide(1200);
+                        $('#business').hide(1200);
+                        $('#economy').hide(1200);
+                        $('#comfort').show(1200);
+
+                       })
+                 })
+             </script>
+
+{% endblock content %}
+
+    </body>
+    </html>

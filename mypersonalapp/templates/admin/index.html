@@ -1,0 +1,160 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.84.0">
+    <title>Admin Page</title>
+
+
+ <!-- Font Awesome icons (free version)-->
+        <script src="{{ url_for('static',filename='js/all.js')}}"></script>
+    <!-- Bootstrap core CSS -->
+<link href="{{ url_for('static',filename='css/bootstrap.min.css')}}" rel="stylesheet">
+
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="{{ url_for('static',filename='css/dashboard.css')}}" rel="stylesheet">
+  </head>
+  <body>
+
+<header class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0 shadow">
+  <a class="navbar-brand col-md-3 col-lg-2 me-0 px-3" href="#">Admin Page -
+  </a>
+  <button class="navbar-toggler position-absolute d-md-none collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <input class="form-control form-control-dark w-100" type="text" placeholder="Search" aria-label="Search">
+  <div class="navbar-nav">
+    <div class="nav-item text-nowrap">
+      <a class="nav-link px-3" href="{{url_for('admin_signout')}}">Sign out</a>
+    </div>
+  </div>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
+      <div class="position-sticky pt-3">
+        <ul class="nav flex-column">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">
+              <span class="fa fa-home"></span>
+              Dashboard
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="registrations.html">
+              <span class="fa fa-users"></span>
+              Registrations
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('model')}}">
+               <span class="fa fa-user"></span>
+                Models
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{url_for('manufacturer')}}">
+              <span class="fa fa-file"></span>
+              Manufacturers
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span class="fa zfa-cart"></span>
+              Update
+            </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('admin_signout')}}">
+              <span class="fa fa-power-off"></span>
+              Sign out
+            </a>
+          </li>
+        </ul>
+
+
+
+      </div>
+    </nav>
+
+    <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
+        <h1 class="h2">Dashboard ({{ sess1.admin_username }})</h1>
+
+
+
+      </div>
+
+
+
+      <h2>Vehicle Details</h2>
+      <div style="text-align:right"><button class="btn btn-lg btn-success"><a href="{{ url_for('addvehicle')}}">Add Vehicle</a></button></div>
+
+      {% set m =get_flashed_messages()%}
+      <p class="alert alert-success">{{ m }}</p>
+
+
+      <table class="table table-striped">
+        <thead>
+           <tr>
+            <th scope="col">#</th>
+            <th scope="col">Image</th>
+            <th scope="col">Color</th>
+            <th scope="col">Year</th>
+            <th scope="col">Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+            {% if vehicle_deets %}
+            {% for i in vehicle_deets %}
+          <tr>
+            <td>{{ loop.index }}</td>
+            {% if i.v_image %}
+            <td>
+            <img src="/static/images/{{i.v_image}}" width="100" height="100">
+            {{ i.v_image }}
+            </td>
+            {% else %}
+            <td>
+              <img src="{{ url_for('static',filename='images/Apex.jpg')}}" width="100" height="100">
+          {% endif %}</td>
+            <td>{{ i.v_color }}</td>
+            <td>{{ i.v_year }}</td>
+            <td><a class="btn btn-danger" href="/admin/vehicle/delete/{{i.v_id}}">Delete</a></td>
+          </tr>
+          {% endfor %}
+          {% endif %}
+        </tbody>
+      </table>
+
+    </main>
+  </div>
+</div>
+
+
+    <script src="{{ url_for('static',filename='js/bootstrap.bundle.min.js')}}"></script>
+
+    <script src="{{ url_for('static',filename='js/dashboard.js')}}"></script>
+  </body>
+</html>

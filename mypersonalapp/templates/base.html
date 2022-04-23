@@ -1,0 +1,148 @@
+
+     <style type="text/css">
+
+     div{
+     min-height:50px;
+     border:0px solid red;
+     }
+     body{
+     font-family:"Courier New";
+     background-color:black;
+        color: white;
+        }
+
+    #top{
+    position:sticky;
+    top:0px;
+    background-color:deeppink;
+    z-index:0px;
+    }
+
+    #footer{
+        background-image:url("static/images/range.jpg");
+        background-repeat:no-repeat;
+      background-size:cover;
+      min-height:300px;
+      color:white;
+      background-color:black ;
+
+    }
+    #overlay{
+        background-color:rgba(0, 0, 0, 0.8);
+    }
+    #content{
+          background-color:rgba(0, 0, 0, 0.8);
+        min-height: 100px;
+        margin: 100px;
+    }
+
+    #backgroundcover{
+        background-color:rgba(0, 0, 0, 0.5);
+        min-height: 800px;
+        min-width: 100%;
+    }
+
+    a:hover{
+        color: deeppink !important;
+    }
+
+
+     </style>
+
+
+
+         <div class="container">
+         <div class="row rounded-circle" id="top">
+         <div class="col">
+         <nav class="navbar navbar-expand-lg navbar-success bg-dark">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="{{ url_for('index')}}"><h1 style="color:deeppink;"><img src="{{url_for('static', filename='images/logo2.jpg')}}" alt="logo" class="img-fluid" style="width:80PX;"><i>Apex Car Spot</i></h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent" style="justify-content:flex-end">
+          <ul class="navbar-nav  mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="{{ url_for('about')}}">ABOUT US</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('service')}}">SERVICES</a>
+            </li>
+                    <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('contact')}}">CONTACT</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('car')}}">CARS</a>
+            </li>
+            {% if session.get('loggedin') != None: %}
+            <li class="nav-item">
+              <a class="nav-link" href="">Hello, {{ userinfo.p_fname }}</a>
+            </li>
+                <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('user_logout')}}">LOGOUT</a>
+            </li>
+            {% else %}
+            <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('submit_login')}}">SIGNIN</a>
+            </li>
+                <li class="nav-item">
+              <a class="nav-link" href="{{ url_for('register')}}">REGISTER</a>
+            </li>
+            {% endif %}
+                </ul>
+
+          </form>
+        </div>
+      </div>
+    </nav>
+        </div>
+         </div>
+
+         {% block content %}
+
+         {% endblock content %}
+
+
+         <div id="footer">
+            <div class="row" id="overlay">
+            <div class="col-lg-3 col-md-6">
+                <h3 style="color:deeppink">Apex Car Spot</h3>
+                <p><span class='fa fa-location'></span>22 Ojekale street shomolu lagos</p>
+                <p><span class='fa fa-book'></span>apexcarsport@yahoo.com</p>
+                <p><span class='fa fa-phone'></span>08081716851</p>
+                <p><span class='fa fa-phone'></span>08134079195</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3 style="color:deeppink">Information</h3>
+                <p>About us</p>
+                <p>Services</p>
+                <p>Cars</p>
+                <p>Contact</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3 style="color:deeppink">Quick Link</h3>
+                <p>Private Policy</p>
+                <p>Terms and Conditins(partners)</p>
+                <p>Terms and Conditions(Rentals)</p>
+                <p>Copyright Notification</p>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <h3 style="color:deeppink">Subscribe us</h3>
+                <input type="email" name="email"placeholder="Email Address"class="rounded-circle"><button>=></button>
+                       <hr>
+                    <img src="{{url_for('static', filename='images/facebook.jfif')}}" alt="facebook" class="img-fluid" width="40px">
+                    <img src="{{url_for('static', filename='images/instagram.jpg')}}" alt="instagram" class="img-fluid" width="40px">
+                    <img src="{{url_for('static', filename='images/twitter.jfif')}}" alt="twitter" class="img-fluid" width="40px">
+            </div>
+                    <div class="row">
+            <div class="col-lg-6">Copyright Reserverd By <u>Apex Car Spot</u>2022</div>
+            <div class="col-lg-6" style="color:white"><span><a href="">Terms of use</a></span>|<span><a href="">Privacy Environmental</a></span>|<span><a href="">Policy</a></span>
+
+       </div>
+                 </div>
+
+           </div>
+           </div>
+
+             </div>
+

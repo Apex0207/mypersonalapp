@@ -1,0 +1,258 @@
+<DOCTYPE html>
+    <html lang="en">
+     <head>
+     <title>Apex car spot</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}" type="text/css"/>
+      <link rel="stylesheet" href="{{url_for('static', filename='fa/css/all.min.css')}}"/>
+      <link rel ="stylesheet" href ="{{url_for('static', filename='animate.min.css')}}" type="text/css">
+     <style type="text/css">
+         #background{
+     background-image:url("static/images/car3.jpeg");
+     background-repeat:no-repeat;
+      background-size:cover;
+      width:0px;
+      min-height: 800px;
+      color:white;
+
+     }
+        </style>
+        {% extends 'base.html' %}
+        {% block content %}
+         <div class="row" style="text-align:center">
+         <div class="col" id="background">
+         <div id="backgroundcover">
+         <h1 style="padding-top: 100px; color:deeppink;"><b>Connect let's help you find your ideal car</b></h1>
+         <h3 style="color:deeppink;"><b>No 1. self drive and unique car rental service</b></h3>
+
+         <div id="content" class="form-group">
+             <form action="{{ url_for('car')}}" method="GET">
+         <input type="text" name="search" id="search" placeholder="key in a car name,make or brand"class="form-control">
+
+         <button class="btn-primary form control" id="searchbtn" type="submit"style="margin-top: 30px;">SEARCH CAR</button>
+        </form>
+         </div>
+        </div>
+        </div>
+         </div>
+
+
+         <div class="row" style="text-align:center">
+         <div class="col"><h2>Why Choose<h2 style="color:deeppink;">Apex Car Spot</h2></div>
+         </div>
+
+         <div class="row" style="text-align:center">
+         <div class="col-lg-4 col-md-12"><h1 class="fa fa-car" style="color:blue"></h1><h3 style="color:deeppink">Self Drive</h3><p>Apex car spot is a car rental service that allows renters to drive themselves</p></div>
+         <div class="col-lg-4 col-md-12"><h1 class="fa fa-dollar" style="color:blue"></h1><h3 style="color:deeppink">Affordability</h3><p>At Apex car spor we consider the pocket of our renters,we have a car for all size of pocket which is pocket friendly</p></div>
+         <div class="col-lg-4 col-md-12"><h1 class="fa fa-book" style="color:blue"></h1><h3 style="color:deeppink">Online Booking</h3><p>we also offer online and offline booking which makes it easy to place order at your convenient</p></div>
+         </div>
+
+         <div class="row">
+         <div class="col-lg-6 col-md-12"><h4><span style="color:deeppink;">Areas</span> You Can Find Us</h4><p>These are the areas you can find Apex Car Spot</p>
+             <ul>
+                 <li>Lagos</li>
+                 <li>Abuja</li>
+                 <li>Benue</li>
+             </ul>
+         </div>
+         <div class="col-lg-6 col-md-12"><img src="{{url_for('static', filename='images/locationmap.jpeg')}}"alt="logo" class="img-fluid"style="padding-left: 200px;"></div>
+         </div>
+
+         <div class="row"style="width: 80%;">
+         <div class="col" style="margin: 20px;"><h3 style="text-align:center; color:blue;">Top <span style="color:deeppink">Questions </span></h3>
+             <span id="que">When do i get charged for a rental?</span><button id="qbtnp"style="margin-left: 700px;">+</button><br>
+             <span id="ans"style="display:none">Payment is at the point of pickup of the vehicle</span><br/>
+
+             <span id="que1">Can i pay for a rental with card or online?</span><button id="qbtnp1"style="margin-left: 700px;">+</button><br>
+             <span id="ans1"style="display:none">The current mode of payment is cash or bank transfer</span><br/>
+
+             <span id="que2">Can i drive myself when i rent a vehicle?</span><button id="qbtnp2"style="margin-left: 700px;">+</button><br>
+             <span id="ans2"style="display:none">Yes, we want you to drive yourself where you want to.</span><br/>
+
+             <span id="que3">Can i rent for a week or more?</span><button id="qbtnp3"style="margin-left: 700px;">+</button><br>
+             <span id="ans3"style="display:none">Yes, you can rent for as long as you want.</span><br/>
+
+             <span id="que4">Can i take  rented vehicles out of town?</span><button id="qbtnp4"style="margin-left: 700px;">+</button><br>
+             <span id="ans4"style="display:none">Yes, you can. Call in to make request for outstation rental.</span><br/>
+
+             <span id="que5">Can i make money from registering my vehicle with Apex Car Spopt?</span><button id="qbtnp5"style="margin-left: 700px;">+</button><br>
+             <span id="ans5"style="display:none">Yes, definitely! Just sign up as a partner or check the contact page to reach out to us.</span><br/>
+
+             <span id="que6">What is the security on my vehicle like?</span><button id="qbtnp6"style="margin-left: 700px;">+</button><br>
+             <span id="ans6"style="display:none">Apex Car Spot takes the liberty of profiling and vetting every renter before rental request is approved. However, every partner is mandated to get a comprehensive insurance policy and a car tracking device.</span>
+         </div>
+         </div>
+
+
+         <script type="text/javascript" src="{{url_for('static', filename='js/bootstrap.bundle.min.js')}}">
+
+
+
+         </script>
+         <script src="{{url_for('static', filename='jquery.js')}}" language="javascript"></script>
+                   <script type="text/javascript">
+
+                       $(document).ready(function(){
+                        $('#qbtnp').click(function(){
+                var c =$('#qbtnp').text();
+               if(c == '-'){
+                      $(this).addClass('alert alert-secondary');
+                      $(this).removeClass('alert alert-primary');
+                      $('#que').removeClass('alert-danger');
+                      $('#ans').hide();
+                      $(this).text('+');
+               }else{
+                      $(this).addClass('alert alert-primary');
+                      $(this) .removeClass('alert alert-secondary');
+                      $('#que').addClass('alert-danger');
+                      $('#ans').show();
+                      $(this).text('-');
+                  }
+                })
+                 })
+
+                       $(document).ready(function(){
+                        $('#qbtnp1').click(function(){
+                var c =$('#qbtnp1').text();
+               if(c == '-'){
+                      $(this).addClass('alert alert-secondary');
+                      $(this).removeClass('alert alert-primary');
+                      $('#que1').removeClass('alert-danger');
+                      $('#ans1').hide();
+                      $(this).text('+');
+               }else{
+                      $(this).addClass('alert alert-primary');
+                      $(this) .removeClass('alert alert-secondary');
+                      $('#que1').addClass('alert-danger');
+                      $('#ans1').show();
+                      $(this).text('-');
+                  }
+                })
+                 })
+
+                       $(document).ready(function(){
+                        $('#qbtnp2').click(function(){
+                var c =$('#qbtnp2').text();
+               if(c == '-'){
+                      $(this).addClass('alert alert-secondary');
+                      $(this).removeClass('alert alert-primary');
+                      $('#que2').removeClass('alert-danger');
+                      $('#ans2').hide();
+                      $(this).text('+');
+               }else{
+                      $(this).addClass('alert alert-primary');
+                      $(this) .removeClass('alert alert-secondary');
+                      $('#que2').addClass('alert-danger');
+                      $('#ans2').show();
+                      $(this).text('-');
+                  }
+                })
+                 })
+
+                       $(document).ready(function(){
+                        $('#qbtnp3').click(function(){
+                var c =$('#qbtnp3').text();
+               if(c == '-'){
+                      $(this).addClass('alert alert-secondary');
+                      $(this).removeClass('alert alert-primary');
+                      $('#que3').removeClass('alert-danger');
+                      $('#ans3').hide();
+                      $(this).text('+');
+               }else{
+                      $(this).addClass('alert alert-primary');
+                      $(this) .removeClass('alert alert-secondary');
+                      $('#que3').addClass('alert-danger');
+                      $('#ans3').show();
+                      $(this).text('-');
+                  }
+                })
+                 })
+
+                       $(document).ready(function(){
+                        $('#qbtnp4').click(function(){
+                var c =$('#qbtnp4').text();
+               if(c == '-'){
+                      $(this).addClass('alert alert-secondary');
+                      $(this).removeClass('alert alert-primary');
+                      $('#que4').removeClass('alert-danger');
+                      $('#ans4').hide();
+                      $(this).text('+');
+               }else{
+                      $(this).addClass('alert alert-primary');
+                      $(this) .removeClass('alert alert-secondary');
+                      $('#que4').addClass('alert-danger');
+                      $('#ans4').show();
+                      $(this).text('-');
+                  }
+                })
+                 })
+
+                       $(document).ready(function(){
+                        $('#qbtnp5').click(function(){
+                var c =$('#qbtnp5').text();
+               if(c == '-'){
+                      $(this).addClass('alert alert-secondary');
+                      $(this).removeClass('alert alert-primary');
+                      $('#que5').removeClass('alert-danger');
+                      $('#ans5').hide();
+                      $(this).text('+');
+               }else{
+                      $(this).addClass('alert alert-primary');
+                      $(this) .removeClass('alert alert-secondary');
+                      $('#que5').addClass('alert-danger');
+                      $('#ans5').show();
+                      $(this).text('-');
+                  }
+                })
+                 })
+
+                       $(document).ready(function(){
+                        $('#qbtnp6').click(function(){
+                var c =$('#qbtnp6').text();
+               if(c == '-'){
+                      $(this).addClass('alert alert-secondary');
+                      $(this).removeClass('alert alert-primary');
+                      $('#que6').removeClass('alert-danger');
+                      $('#ans6').hide();
+                      $(this).text('+');
+               }else{
+                      $(this).addClass('alert alert-primary');
+                      $(this) .removeClass('alert alert-secondary');
+                      $('#que6').addClass('alert-danger');
+                      $('#ans6').show();
+                      $(this).text('-');
+                  }
+                })
+
+
+
+                $('#searchbtn').click(function(){
+                     var search= $('#search').val()
+                     var csrf = "{{ csrf_token() }}"
+                     data2send = {"search":search, "crsf_token()":csrf}
+
+                     $.ajax({
+                     url:"/post/car",
+                     data:data2send,
+                     type:'post',
+                     success: function(msg){
+                     $('#mycar').prepend("<div class='row'><div class='col-8 mx-auto'>"+msg+"</div></div>")
+                     },
+                     error:function(err){
+                     console.log(err)
+                     }
+
+                     })
+                     })
+
+                 })
+
+                   </script>
+
+
+
+
+     {% endblock content %}
+                </body>
+                </html>

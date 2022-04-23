@@ -1,0 +1,85 @@
+<DOCTYPE html>
+    <html lang="en">
+     <head>
+     <title>Apex car spot</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}" type="text/css"/>
+      <link rel="stylesheet" href="{{url_for('static', filename='fa/css/all.min.css')}}"/>
+      <link rel ="stylesheet" href ="{{url_for('static', filename='animate.min.css')}}" type="text/css">
+     <style type="text/css">
+
+#background{
+background-image:url("static/images/car7.jpeg");
+background-repeat:repeat;
+background-size:contain;
+width:0px;
+min-height: 400px;
+color:white;
+}
+li a{
+ text-decoration: none;
+ color: deeppink;
+}
+li{
+ display:inline-block;}
+    </style>
+
+{% extends 'base.html' %}
+{% block content %}
+
+
+            <div class="row" style="text-align: center;">
+                <div class="col" id="background"><h1 style="color:black"><b>Create Account</b></h1>
+                    <ul>
+                        <li><a href="apexcarspot.html"><b>Home</b></a></li>
+                        <li><a href=""><b><=></b></a></li>
+                        <li><a href="register.html"><b>Sign up</b></a></li>
+                    </ul></div>
+                    <h2><b>Create Account</b></h2>
+            </div>
+                     <hr>
+                     {% with m = get_flashed_messages() %}
+                     {% if m %}
+                     <p class="alert alert-danger">{{ m }}</p>
+                     {% endif %}
+                     {% endwith %}
+
+
+            <div  class="row" style="text-align: center;">
+                <div class="col">
+                    <form action="{{url_for('register')}}" method="POST">
+                        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+                        <input type="text" name="fname" placeholder="First Name" class="form-control"><br>
+                        <input type="text" name="lname" placeholder="Last Name" class="form-control"><br>
+                        <input type="email" name="email" placeholder="Email" value="" class="form-control"><br>
+
+                        <input type="number" name="phone" placeholder="Mobile" class="form-control"><br>
+                        <select name="usertype" class="form-control">
+                            <option value="">--Select Usertype--</option>
+                <option value="partner">--Partner--</option>
+                <option value="rental">--Rental--</option>
+                        </select><br>
+                        <textarea class="form-control" name="address">Address</textarea><br>
+                        <input type="password" name="pwd1" placeholder="Password" value="" class="form-control"><br>
+                        <input type="password" name="pwd2" placeholder="Confirm Password" value="" class="form-control">
+
+                        <hr>
+                        <button type="submit" class="btn-primary form-control">Register</button>
+                        <p>Already have an account? <a href="signin.html">Login</a></p>
+                    </form>
+                </div>
+                </div>
+
+{% endblock content %}
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+         <script src="jquery.js"  language="javascript"></script>
+                   <script type="text/javascript">
+
+
+             </script>
+
+
+
+    </body>
+    </html>

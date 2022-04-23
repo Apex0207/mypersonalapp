@@ -1,0 +1,77 @@
+<DOCTYPE html>
+    <html lang="en">
+     <head>
+     <title>Apex car spot</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}" type="text/css"/>
+      <link rel="stylesheet" href="{{url_for('static', filename='fa/css/all.min.css')}}"/>
+      <link rel ="stylesheet" href ="{{url_for('static', filename='animate.min.css')}}" type="text/css">
+     <style type="text/css">
+
+#background{
+background-image:url("static/images/car8.jpeg");
+background-repeat:repeat;
+background-size:contain;
+width:0px;
+min-height: 400px;
+color:white;
+}
+li a{
+ text-decoration: none;
+ color: deeppink;
+}
+li{
+ display:inline-block;}
+    </style>
+
+{% extends 'base.html' %}
+{% block content %}
+
+            <div class="row" style="text-align: center;">
+                <div class="col" id="background"><h1 style="color:black">Cars</h1>
+                    <ul>
+                        <li><a href="apexcarspot.html"><b>Home</b></a></li>
+                        <li><a href=""><b><=></b></a></li>
+                        <li><a href="car.html"><b>Cars</b></a></li>
+                    </ul></div>
+                    <h3>Largest car's rental MarketPlace</h3>
+            </div>
+
+
+            <div  class="row" style="text-align: center;">
+                <div class="col-lg-6 col-md-12">
+                    <h4>Find your car</h4>
+                    <h5>Vehicle Classes</h5>
+                    <ul>
+                        <li>Suv</li><br>
+                        <li>Classic</li><br>
+                        <li>Economy</li><br>
+                        <li>Comfort</li><br>
+                        <li>Business</li>
+
+                    </ul>
+                </div>
+                <div class="col-lg-6 col-md-12" id="mycar">
+                    {% for s in mandeets %}
+                    <p>{{s.man_name}} <span>{{ modeldeets.mod_name }}</span></p>
+                    <span>{{ modeldeets.mod_color }}</span>
+                    <span>{{ modeldeets.mod_year }}</span>
+                    {% endfor %}
+
+                    <p><a href="{{ url_for('rent_car')}}">View details</a></p></div>
+            </div>
+
+
+         <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+         <script src="jquery.js"  language="javascript"></script>
+                   <script type="text/javascript">
+
+
+             </script>
+
+
+            {% endblock content %}
+
+    </body>
+    </html>

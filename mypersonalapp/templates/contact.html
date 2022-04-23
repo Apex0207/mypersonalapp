@@ -1,0 +1,74 @@
+<DOCTYPE html>
+    <html lang="en">
+     <head>
+     <title>Apex car spot</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <link rel="stylesheet" href="{{url_for('static', filename='css/bootstrap.css')}}" type="text/css"/>
+      <link rel="stylesheet" href="{{url_for('static', filename='fa/css/all.min.css')}}"/>
+      <link rel ="stylesheet" href ="{{url_for('static', filename='animate.min.css')}}" type="text/css">
+     <style type="text/css">
+
+#background{
+background-image:url("static/images/car2.jpeg");
+background-repeat:repeat;
+background-size:contain;
+width:0px;
+min-height: 400px;
+color:white;
+}
+li a{
+ text-decoration: none;
+ color: deeppink;
+}
+li{
+ display:inline-block;}
+    </style>
+
+{% extends 'base.html' %}
+{% block content %}
+
+            <div class="row" style="text-align: center;">
+                <div class="col" id="background"><h1 style="color:black"><b>Contact Us</b></h1>
+                    <ul>
+                        <li><a href="apexcarspot.html"><b>Home</b></a></li>
+                        <li><a href=""><b><=></b></a></li>
+                        <li><a href="signin.html"><b>Contact</b></a></li>
+                    </ul></div>
+                    <h2><b>Contact Information</b></h2>
+            </div>
+                     <hr>
+                     <div class="row" style="text-align: center;">
+                         <div class="col-lg-4 col-md-6"><h2 class='fa fa-location' style="color:deeppink"></h2><h3>Location</h3><p>22 Ojekale street shomolu lagos</p></div>
+                         <div class="col-lg-4 col-md-6"><h2 class='fa fa-phone' style="color:deeppink"></h2><h3>Contact Number</h3><p>+234 813 407 9195</p><p>+233 814 457 9697</p></div>
+                         <div class="col-lg-4 col-md-6"><h2 class='fa fa-book' style="color:deeppink"></h2><h3>Mail Address</h3><p>apexcarspot@yahoo.com</p><p>okewujapeh@yahoo.com</p></div></div>
+                     </div>
+
+
+            <div  class="row" style="text-align: center;">
+                <div class="col-lg-12 col-md-12">
+                    <h2><b>Contact Us</b></h2>
+                    <form action="" method="get">
+                        <input type="text" name="name" placeholder="Name" class="form-control"><br>
+                        <input type="email" name="email" placeholder="Email" value="" class="form-control"><br>
+                        <input type="number" name="phone" placeholder="Mobile" class="form-control"><br>
+                        <textarea class="form-control">Message</textarea><br/>
+
+                        <button type="submit" class="btn-primary form-control">Send Now</button>
+                    </form>
+                </div>
+                </div>
+
+                {% endblock content %}
+
+    <script type="text/javascript" src="js/bootstrap.bundle.min.js"></script>
+         <script src="jquery.js"  language="javascript"></script>
+                   <script type="text/javascript">
+
+
+              </script>
+
+
+
+    </body>
+    </html>
